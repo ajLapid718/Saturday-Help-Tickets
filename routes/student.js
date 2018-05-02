@@ -35,9 +35,13 @@ router.put("/student/:id", function(req, res, next) {
     res.status(201).send(affectedRows);
   });
 
-  // Find by student id
-  // Use instance method update throw in the req.body
-  // res send 201 and yeah;
+  // // Find by student id
+  // // Use instance method update throw in the req.body
+  // // res send 201 and yeah;
+  //
+  // // let targetId = req.params.id;
+  // // let infoToUpdate = req.body;
+  // Student.findById(targetId).then(foundStudent => foundStudent.update(infoToUpdate)).then(updatedStudent => res.status(201).send(updatedStudent));
 
 });
 
