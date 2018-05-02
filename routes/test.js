@@ -25,9 +25,8 @@ router.post("/test/student/:studentId", function(req, res, next) {
   let newInfo = req.body;
 
   Test.create(newInfo).then(newTest => {
-    newTest.studentId = Number(targetId);
-    res.status(201).json(newTest);
-  });
+    return newTest.setStudent(Number(targetId));
+  }).then(success => res.status(201).json(success));
 });
 
 router.delete("/test/:id", function(req, res, next) {
