@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 app.use("/", Student);
+app.use("/", Test);
 
 
 app.use(function(err, req, res, next) {
