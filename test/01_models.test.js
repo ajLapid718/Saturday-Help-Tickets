@@ -210,7 +210,7 @@ describe('Models', function() {
     });
 
     describe('associations', () => {
-      xit('belongs to a student', () => {
+      it('belongs to a student', () => {
         const newStudent = Student.create({
           firstName: 'Pepper',
           lastName: 'Potts',

@@ -35,4 +35,6 @@ Test.findBySubject = function(subj) {
   })
 };
 
+Test.belongsTo(Student);
+
 module.exports = Test;
