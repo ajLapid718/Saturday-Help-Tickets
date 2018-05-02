@@ -3,14 +3,16 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const db = require('./db/db');
-const Student = require('./routes/student');
-const Test = require('./routes/test');
+const Student = require('./routes/student.js');
+const Test = require('./routes/test.js');
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(morgan('dev'));
+
+app.use("/", Student);
 
 
 app.use(function(err, req, res, next) {
