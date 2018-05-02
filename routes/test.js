@@ -20,12 +20,15 @@ router.get("/test/subject/:subject", function(req, res, next) {
   Test.findBySubject(req.params.subject).then(tests => res.json(tests));
 });
 
-// router.post("/test/student/:studentId", function(req, res, next) {
-//   let targetId = req.params.studentId;
-//   let newInfo = req.body;
-//
-//   Test.create(newInfo).then(updatedStudent => res.status(201).json("Created"));
-// })
+router.post("/test/student/:studentId", function(req, res, next) {
+  let targetId = req.params.studentId;
+  let newInfo = req.body;
+
+  Test.create(newInfo).then(newTest => {
+    newTest.studentId = Number(targetId);
+    res.status(201).json(newTest);
+  });
+});
 
 router.delete("/test/:id", function(req, res, next) {
   Test.destroy({
