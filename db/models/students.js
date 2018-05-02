@@ -37,4 +37,10 @@ Student.addHook('beforeSave', (student, options) => {
   student.lastName = student.lastName[0].toUpperCase() + student.lastName.slice(1);
 });
 
+Student.prototype.initials = function() {
+  let firstInitial = this.firstName[0];
+  let secondInitial = this.lastName[0];
+  return firstInitial + " " + secondInitial;
+};
+
 module.exports = Student;
