@@ -21,14 +21,18 @@ Test.passing = function() {
   return Test.findAll({
     where: {
       grade: {
-        [Op.gt]: 70  
+        [Op.gt]: 70
       }
     }
   });
 };
 
 Test.findBySubject = function(subj) {
-
+  return Test.findAll({
+    where: {
+      subject: subj
+    }
+  })
 };
 
 module.exports = Test;
