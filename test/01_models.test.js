@@ -192,7 +192,7 @@ describe('Models', function() {
       });
 
       describe('passing', () => {
-        xit('should return the test instances that have grade greater than 70', () => {
+        it('should return the test instances that have grade greater than 70', () => {
           return Test.passing().then(foundTests => {
             expect(foundTests).to.be.an.instanceOf(Array);
             expect(foundTests).to.have.length(3);
@@ -200,7 +200,7 @@ describe('Models', function() {
         });
       });
       describe('findBySubject', () => {
-        xit('should return all instances by given subject', () => {
+        it('should return all instances by given subject', () => {
           return Test.findBySubject('Outdoor Survival').then(foundTests => {
             expect(foundTests).to.be.an.instanceOf(Array);
             expect(foundTests).to.have.length(2);
