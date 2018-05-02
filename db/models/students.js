@@ -32,4 +32,9 @@ const Student = db.define('student', {
 
 });
 
+Student.addHook('beforeSave', (student, options) => {
+  student.firstName = student.firstName[0].toUpperCase() + student.firstName.slice(1);
+  student.lastName = student.lastName[0].toUpperCase() + student.lastName.slice(1);
+});
+
 module.exports = Student;
