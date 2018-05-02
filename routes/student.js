@@ -7,7 +7,20 @@ router.get("/student", function(req, res, next) {
 
 router.get("/student/:id", function(req, res, next) {
   let targetId = req.params.id;
-  Student.findById(targetId).then(student => res.json(student));
+
+  Student.findById(targetId).then(function(student) {
+    if (!student) {
+      res.status(404).send("Not Found");
+    }
+    else {
+      res.json(student);
+    }
+  });
+
+});
+
+router.post("/student", function(req, res, next) {
+  Student.create(req.body).then(savedStudent => res.json(savedStudent)).catch(err => console.log(err));
 });
 
 module.exports = router;

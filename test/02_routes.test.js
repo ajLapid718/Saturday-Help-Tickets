@@ -75,13 +75,13 @@ describe('Routes', () => {
           });
       });
 
-      xit('returns a 404 error if student does not exist in DB', () => {
+      it('returns a 404 error if student does not exist in DB', () => {
         return agent.get('/student/09432').expect(404);
       });
     });
 
     describe('POST /student', () => {
-      xit('creates a new Student instance', () => {
+      it('creates a new Student instance', () => {
         return agent
           .post('/student')
           .send({
@@ -98,7 +98,7 @@ describe('Routes', () => {
     });
 
     describe('PUT /student/:id', () => {
-      xit('updates an instance of a student', () => {
+      it('updates an instance of a student', () => {
         return agent
           .put(`/student/${pepper.id}`)
           .send({ firstName: 'Salty' })
@@ -111,7 +111,7 @@ describe('Routes', () => {
     });
 
     describe('DELETE /student/:id', () => {
-      xit('deletes an instance of a student', () => {
+      it('deletes an instance of a student', () => {
         return agent
           .delete(`/student/${charlie.id}`)
           .expect(204)
